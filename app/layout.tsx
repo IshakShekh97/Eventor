@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { ClerkProvider } from "@clerk/nextjs";
+import { dark, shadesOfPurple, neobrutalism } from "@clerk/themes";
+import "./globals.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -25,7 +26,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        baseTheme: [dark],
+        userButton: {
+          baseTheme: [dark, shadesOfPurple],
+        },
+        userProfile: {
+          baseTheme: [dark],
+        },
+      }}
+    >
       <html lang="en">
         <ThemeProvider
           attribute="class"
@@ -33,7 +44,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <body className={poppins.variable + " dark:bg-black bg-primary-50"}>
+          <body
+            className={
+              poppins.variable +
+              " bg-dotted-pattern bg-cover bg-fixed bg-center"
+            }
+          >
             {children}
 
             <div className="fixed bottom-10 right-10 z-[99]">
