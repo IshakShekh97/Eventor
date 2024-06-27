@@ -1,7 +1,7 @@
-import { Document, model, models, Schema } from "mongoose";
+import { Document, Schema, model, models } from "mongoose";
 
-export interface Category extends Document {
-  _id?: string;
+export interface ICategory extends Document {
+  _id: string;
   name: string;
 }
 
