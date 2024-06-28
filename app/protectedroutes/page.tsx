@@ -4,8 +4,8 @@ import { redirect } from "next/navigation";
 import React from "react";
 
 const ProtectedPage = async () => {
-  const user = await currentUser();
-  if (!user) redirect("/sign-in");
+  // const user = await currentUser();
+  // if (!user) redirect("/sign-in");
 
   return (
     <div>
